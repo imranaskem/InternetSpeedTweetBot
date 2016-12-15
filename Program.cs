@@ -8,7 +8,7 @@ namespace InternetSpeedTweetBot
 {
     class Program
     {
-        static TimeSpan timeBetweenTests = new TimeSpan(0, 0, 30);
+        static TimeSpan timeBetweenTests = new TimeSpan(0, 30, 0);
 
         static void Main(string[] args)
         {
