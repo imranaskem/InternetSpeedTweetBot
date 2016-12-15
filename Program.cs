@@ -85,7 +85,7 @@ namespace InternetSpeedTweetBot
 
             Auth.SetUserCredentials(consumerKey, consumerSecretKey, accessToken, accessSecretToken);
 
-            var tweetMessage = $".@virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";            
+            var tweetMessage = $"Hey, @virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";            
 
             var tweet = Tweet.PublishTweet(tweetMessage);
 
