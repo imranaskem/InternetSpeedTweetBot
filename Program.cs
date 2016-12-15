@@ -26,7 +26,8 @@ namespace InternetSpeedTweetBot
             const string tempfile = "tempfile.tmp";
             const double threshold = 100;            
 
-            Console.WriteLine("Downloading file...");
+            Console.WriteLine("{0:t} Downloading file...", DateTime.Now);
+            
             Console.WriteLine();
 
             Stopwatch sw = new Stopwatch();
@@ -72,6 +73,7 @@ namespace InternetSpeedTweetBot
 
             Console.WriteLine();
             Console.WriteLine($"Next test is in {timeBetweenTests.Minutes} minutes");
+            Console.WriteLine();
         }
 
         private static bool TweetISP(double speed)
@@ -83,7 +85,7 @@ namespace InternetSpeedTweetBot
 
             Auth.SetUserCredentials(consumerKey, consumerSecretKey, accessToken, accessSecretToken);
 
-            var tweetMessage = $"@virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";            
+            var tweetMessage = $".@virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";            
 
             ExceptionHandler.SwallowWebExceptions = false;
 
