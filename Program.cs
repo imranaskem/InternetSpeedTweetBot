@@ -9,7 +9,7 @@ namespace InternetSpeedTweetBot
 {
     class Program
     {
-        static TimeSpan timeBetweenTests = new TimeSpan(0, 30, 0);
+        static TimeSpan timeBetweenTests = TimeSpan.FromMinutes(30);
 
         static void Main(string[] args)
         {            
@@ -86,8 +86,6 @@ namespace InternetSpeedTweetBot
             Auth.SetUserCredentials(consumerKey, consumerSecretKey, accessToken, accessSecretToken);
 
             var tweetMessage = $".@virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";            
-
-            ExceptionHandler.SwallowWebExceptions = false;
 
             var tweet = Tweet.PublishTweet(tweetMessage);
 
