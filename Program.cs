@@ -29,7 +29,7 @@ namespace InternetSpeedTweetBot
         private static void MeasureSpeed()
         {
             const string tempfile = "tempfile.tmp";
-            const double threshold = 200;            
+            const double threshold = 100;            
 
             Console.WriteLine("Downloading file...");
             Console.WriteLine();
@@ -88,13 +88,11 @@ namespace InternetSpeedTweetBot
 
             Auth.SetUserCredentials(consumerKey, consumerSecretKey, accessToken, accessSecretToken);
 
-            //var tweetMessage = $"@virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";
-
-            var tweetMessage = "Test tweet";
+            var tweetMessage = $"@virginmedia My current download speed is {speed}Mbps but I'm paying for 200Mbps!";            
 
             ExceptionHandler.SwallowWebExceptions = false;
 
-            var tweet = Tweet.PublishTweet(tweetMessage)
+            var tweet = Tweet.PublishTweet(tweetMessage);
 
             return tweet.IsTweetPublished;
         }
