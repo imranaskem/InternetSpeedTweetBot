@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Diagnostics;
+using System.Threading;
 using Tweetinvi;
 
 namespace InternetSpeedTweetBot
@@ -11,18 +12,12 @@ namespace InternetSpeedTweetBot
         static TimeSpan timeBetweenTests = new TimeSpan(0, 30, 0);
 
         static void Main(string[] args)
-        {
-            var lastTimeCalc = DateTime.MinValue;
-
+        {            
             while (true)
-            {
-                var timeDiff = DateTime.UtcNow - lastTimeCalc;
+            {                
+                MeasureSpeed();
 
-                if (timeDiff > timeBetweenTests)
-                {
-                    MeasureSpeed();
-                    lastTimeCalc = DateTime.UtcNow;
-                }
+                Thread.Sleep(timeBetweenTests);
             }
         }
 
